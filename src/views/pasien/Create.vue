@@ -5,31 +5,32 @@
         <div class="card-header">
           <h6 class="h6">Tambahkan Data pasien Baru</h6>
         </div>
-        <div class="card-body">
+        <form @submit.prevent="handleSubmit" class="card-body">
           <div class="grid grid-cols-1 gap-0 sm:gap-4 md:gap-6 md:grid-cols-2">
             <div>
               <label>ID Pasien</label>
               <input
                 type="number"
                 disabled
+                v-model="data.id_pasien"
                 class="block w-full py-2 mt-2 form-input !bg-gray-100 cursor-not-allowed"
               />
             </div>
             <div>
               <label>NIK</label>
-              <input type="number" class="block w-full py-2 mt-2 form-input" />
+              <input type="number" v-model="data.nik" class="block w-full py-2 mt-2 form-input" />
             </div>
             <div class="col-span-1 sm:col-span-2">
               <label>Nama </label>
-              <input type="text" class="block w-full py-2 mt-2 form-input" />
+              <input type="text" v-model="data.nama" class="block w-full py-2 mt-2 form-input" />
             </div>
             <div>
               <label>Usia</label>
-              <input type="number" class="block w-full py-2 mt-2 form-input" />
+              <input type="number" v-model="data.usia" class="block w-full py-2 mt-2 form-input" />
             </div>
             <div>
               <label>Jenis Kelamin</label>
-              <select class="block w-full py-2 mt-2 form-select form-input">
+              <select v-model="data.gender" class="block w-full py-2 mt-2 form-select form-input">
                 <option disabled selected value="not selected">Pilih jenis kelamin</option>
                 <option value="laki-laki">laki-laki</option>
                 <option value="perempuan">perempuan</option>
@@ -39,18 +40,22 @@
               <label>No HP</label>
               <div>
                 <span class="absolute mt-[9px] text-gray-500 ml-3">+62 </span>
-                <input type="number" class="block w-full py-2 mt-2 form-input !pl-11" />
+                <input
+                  type="number"
+                  v-model="data.no_hp"
+                  class="block w-full py-2 mt-2 form-input !pl-11"
+                />
               </div>
             </div>
             <div>
               <label>Alamat</label>
-              <input type="text" class="block w-full py-2 mt-2 form-input" />
+              <input type="text" v-model="data.alamat" class="block w-full py-2 mt-2 form-input" />
             </div>
           </div>
           <div class="flex justify-end gap-2 py-5">
             <button type="submit" class="btn-primary">Tambah</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </Layout>
@@ -59,4 +64,31 @@
 <script setup>
 import Layout from '../../layouts/Layout.vue';
 import Table from '../../components/table.vue';
+import { useStore } from 'vuex';
+import { reactive } from '@vue/reactivity';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const store = useStore();
+
+const newIdPasien = store.getters.lastIdPasien + 1;
+const addPasien = (newPasien) => store.dispatch('addPasienAction', newPasien);
+
+const data = reactive({
+  id_pasien: newIdPasien,
+  nik: null,
+  nama: null,
+  usia: null,
+  gender: null,
+  alamat: null,
+  no_hp: null,
+});
+
+const handleSubmit = () => {
+  // console.log(data);
+  addPasien(data);
+  router.push({ name: 'Pasien' });
+};
+
+// console.log(lastIdPasien);
 </script>

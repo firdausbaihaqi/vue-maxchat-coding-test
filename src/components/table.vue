@@ -36,13 +36,18 @@
                 </td>
 
                 <td class="flex justify-end gap-3 px-6 py-4 text-lg font-medium whitespace-nowrap">
-                  <a href="#" class="text-yellow-500 hover:text-yellow-600">
+                  <a class="text-yellow-500 cursor-pointer hover:text-yellow-600">
                     <i class="fas fa-eye"></i>
                   </a>
-                  <a href="#" class="text-indigo-500 hover:text-indigo-600">
+                  <a class="text-indigo-500 cursor-pointer hover:text-indigo-600">
                     <i class="fas fa-edit"></i>
                   </a>
-                  <a href="#" class="text-red-500 hover:text-red-600">
+
+                  <!-- emit deleteItem dengan parameter item[id_pasien / id_obat] -->
+                  <a
+                    @click.prevent="this.$emit('deleteItem', item[tableHeader[0]])"
+                    class="text-red-500 cursor-pointer hover:text-red-600"
+                  >
                     <i class="fas fa-trash"></i>
                   </a>
                 </td>
@@ -60,4 +65,6 @@ const props = defineProps({
   tableHeader: Array,
   items: Object,
 });
+
+const emit = defineEmits(['deleteItem']);
 </script>

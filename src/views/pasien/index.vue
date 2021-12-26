@@ -13,7 +13,7 @@
         <!-- content -->
         <div class="p-4 md:p-8 overflow-x-scroll max-w-[85vw] sm:max-w-[90vw] lg:max-w-none">
           <div v-if="dataPasien.length > 0">
-            <Table :tableHeader="tableHeader" :items="dataPasien" />
+            <Table :tableHeader="tableHeader" :items="dataPasien" @deleteItem="deletePasien" />
           </div>
         </div>
       </div>
@@ -22,18 +22,21 @@
 </template>
 
 <script setup>
-import axios from 'axios';
 import Layout from '../../layouts/Layout.vue';
 import Table from '../../components/table.vue';
-import { onMounted, ref } from '@vue/runtime-core';
+import { computed, onMounted } from '@vue/runtime-core';
+import { useStore } from 'vuex';
 
-const dataPasien = ref([]);
+const store = useStore();
+
 const tableHeader = ['id_pasien', 'nama', 'usia', 'gender', 'alamat'];
 
-onMounted(async () => {
-  axios.get('data/pasien.json').then((res) => {
-    dataPasien.value = res.data;
-    // console.log(dataPasien.value);
-  });
+const fetchPasien = () => store.dispatch('fetchPasien');
+const dataPasien = computed(() => store.getters.dataPasien);
+
+const deletePasien = (id_pasien) => store.dispatch('deletePasienAction', id_pasien);
+
+onMounted(() => {
+  fetchPasien();
 });
 </script>

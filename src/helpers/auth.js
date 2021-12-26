@@ -11,6 +11,7 @@ const getUserLogin = () => {
     }
     else if (data.email === defaultData.email) {
         // console.log("ada isi tapi default")
+        isLoggedIn = false;
     } else {
         isLoggedIn = true;
     }
@@ -20,7 +21,6 @@ const getUserLogin = () => {
 
 const setUserLogin = (newData) => {
     localStorage.setItem("userLogin", JSON.stringify(newData));
-    return console.log("set data completed!");
 }
 
 const removeUserLogin = () => {

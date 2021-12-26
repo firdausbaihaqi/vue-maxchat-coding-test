@@ -52,23 +52,5 @@
     "gender": "perempuan",
     "alamat": "992 Atkins Avenue, Glendale, Vermont",
     "no_hp": "+62 892-5595-3687"
-  },
-  {
-    "id_pasien": 7,
-    "nik": 1063859598263007,
-    "nama": "Mcleod Johns",
-    "usia": 40,
-    "gender": "perempuan",
-    "alamat": "740 Cox Place, Washington, American Samoa",
-    "no_hp": "+62 896-0532-2645"
-  },
-  {
-    "id_pasien": 8,
-    "nik": 2084509083201762,
-    "nama": "Hardin Mills",
-    "usia": 39,
-    "gender": "perempuan",
-    "alamat": "510 Battery Avenue, Vienna, Colorado",
-    "no_hp": "+62 894-3447-2544"
   }
 ]

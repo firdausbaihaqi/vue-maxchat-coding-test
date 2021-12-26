@@ -36,7 +36,7 @@
 
             <div class="flex items-end justify-between mt-8">
               <div>
-                <h1 class="h5">10</h1>
+                <h1 class="h5">{{ totalPasien }}</h1>
                 <p>Total Pasien Terdaftar</p>
               </div>
 
@@ -60,7 +60,7 @@
 
             <div class="flex items-end justify-between mt-8">
               <div>
-                <h1 class="h5">22</h1>
+                <h1 class="h5">in progress</h1>
                 <p>Total data Obat</p>
               </div>
 
@@ -78,5 +78,10 @@
 </template>
 
 <script setup>
+import { ref } from '@vue/reactivity';
+import { useStore } from 'vuex';
 import Layout from '../layouts/Layout.vue';
+
+const store = useStore();
+const totalPasien = ref(store.getters.dataPasien.length);
 </script>

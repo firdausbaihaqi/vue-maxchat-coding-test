@@ -68,7 +68,9 @@
                 <!--Action-->
                 <div class="flex justify-end pt-8">
                   <div class="flex gap-2">
-                    <button type="submit" class="btn-danger">Logout</button>
+                    <button @click="this.$emit('logout')" type="submit" class="btn-danger">
+                      Logout
+                    </button>
 
                     <button class="btn-secondary" @click.prevent="modalLogout = !modalLogout">
                       Cancel
@@ -88,6 +90,8 @@
 
 <script setup>
 import { ref } from '@vue/reactivity';
+
+const emit = defineEmits(['logout']);
 
 const isOpen = ref(false);
 const modalLogout = ref(false);

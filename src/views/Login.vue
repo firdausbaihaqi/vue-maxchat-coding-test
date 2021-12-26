@@ -1,12 +1,12 @@
 <template>
   <section class="w-full min-h-screen px-4 py-10 bg-gray-100 md:px-8 md:py-16 xl:px-8">
-    <div class="max-w-5xl mx-auto md:mt-5">
+    <div class="max-w-5xl mx-auto">
       <div class="flex flex-col items-center md:flex-row">
         <div class="w-full space-y-5 md:w-3/5 md:pr-16">
           <img
             src="http://api.elements.buildwithangga.com/storage/files/2/assets/Empty%20State/EmptyState3/Empty-3-5.png"
             alt="missing img"
-            class="hidden transform translate-y-10 md:inline"
+            class="hidden translate-y-10 md:inline"
           />
         </div>
 
@@ -16,7 +16,7 @@
           >
             <h3 class="mb-6 text-2xl font-semibold text-center">Mohon masuk terlebih dahulu</h3>
 
-            <form method="post" class="mt-8">
+            <form class="mt-8">
               <div class="py-1">
                 <label for="email" class="px-1 text-sm text-gray-600 md:text-base">Email</label>
                 <div>
@@ -35,10 +35,11 @@
                   </span>
                   <input
                     name="email"
+                    ref="emailForm"
                     placeholder="Masukan Email"
                     type="email"
                     value=""
-                    class="input-text-icon"
+                    class="input-text-icon form-input"
                   />
                 </div>
               </div>
@@ -65,9 +66,10 @@
 
                   <input
                     name="password"
+                    ref="passwordForm"
                     placeholder="Masukan Password"
                     :type="show ? 'text' : 'password'"
-                    class="input-text-icon"
+                    class="input-text-icon form-input"
                   />
 
                   <span
@@ -81,7 +83,9 @@
               </div>
 
               <div class="block pt-6">
-                <button type="submit" class="w-full btn-primary">Masuk</button>
+                <button @click.prevent="login" type="submit" class="w-full btn-primary">
+                  Masuk
+                </button>
               </div>
             </form>
           </div>
@@ -93,8 +97,41 @@
 
 <script setup>
 import { ref } from '@vue/reactivity';
+import { onMounted } from '@vue/runtime-core';
+import { useRouter } from 'vue-router';
+
+import { getUserLogin, setUserLogin } from '../helpers/auth';
 
 const show = ref(false);
+const emailForm = ref(null);
+const passwordForm = ref(null);
+const router = useRouter();
+
+onMounted(() => {
+  const { isLoggedIn } = getUserLogin();
+
+  if (isLoggedIn) {
+    router.push({ name: 'Home' });
+  }
+});
+
+const login = () => {
+  // dummy login credentials
+  // email : admin@gmail.com
+  // password : 123
+
+  // simple login logic
+  if (emailForm.value.value == 'admin@gmail.com' && passwordForm.value.value == '123') {
+    const userData = {
+      email: emailForm.value.value,
+      username: 'admin',
+    };
+    setUserLogin(userData);
+    router.push({ name: 'Home' });
+  } else {
+    alert('wrong credentials');
+  }
+};
 </script>
 
 <style lang="postcss" scoped>

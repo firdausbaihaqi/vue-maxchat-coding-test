@@ -1,0 +1,74 @@
+[
+  {
+    "id_pasien": 1,
+    "nik": 2104039319086386,
+    "nama": "Campbell Ryan",
+    "usia": 39,
+    "gender": "laki-laki",
+    "alamat": "756 Story Street, Otranto, Guam",
+    "no_hp": "+62 884-8557-2496"
+  },
+  {
+    "id_pasien": 2,
+    "nik": 2975748426952617,
+    "nama": "Miles Williams",
+    "usia": 24,
+    "gender": "perempuan",
+    "alamat": "320 Classon Avenue, Yardville, Connecticut",
+    "no_hp": "+62 889-1429-2487"
+  },
+  {
+    "id_pasien": 3,
+    "nik": 854032607129125,
+    "nama": "Vega Harvey",
+    "usia": 22,
+    "gender": "laki-laki",
+    "alamat": "607 Schenectady Avenue, Zeba, Oregon",
+    "no_hp": "+62 882-0540-3702"
+  },
+  {
+    "id_pasien": 4,
+    "nik": 2171046544219738,
+    "nama": "Sexton Logan",
+    "usia": 21,
+    "gender": "perempuan",
+    "alamat": "990 Bainbridge Street, Edenburg, Wyoming",
+    "no_hp": "+62 894-8464-3218"
+  },
+  {
+    "id_pasien": 5,
+    "nik": 414285262164479,
+    "nama": "Bobbie Mcclure",
+    "usia": 33,
+    "gender": "perempuan",
+    "alamat": "826 Argyle Road, Grazierville, District Of Columbia",
+    "no_hp": "+62 892-4461-3509"
+  },
+  {
+    "id_pasien": 6,
+    "nik": 2159357732897096,
+    "nama": "Ewing Mooney",
+    "usia": 24,
+    "gender": "perempuan",
+    "alamat": "992 Atkins Avenue, Glendale, Vermont",
+    "no_hp": "+62 892-5595-3687"
+  },
+  {
+    "id_pasien": 7,
+    "nik": 1063859598263007,
+    "nama": "Mcleod Johns",
+    "usia": 40,
+    "gender": "perempuan",
+    "alamat": "740 Cox Place, Washington, American Samoa",
+    "no_hp": "+62 896-0532-2645"
+  },
+  {
+    "id_pasien": 8,
+    "nik": 2084509083201762,
+    "nama": "Hardin Mills",
+    "usia": 39,
+    "gender": "perempuan",
+    "alamat": "510 Battery Avenue, Vienna, Colorado",
+    "no_hp": "+62 894-3447-2544"
+  }
+]

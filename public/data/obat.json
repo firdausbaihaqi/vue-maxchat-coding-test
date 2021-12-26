@@ -1,0 +1,56 @@
+[
+  {
+    "id_resep": 100,
+    "nama_obat": "culpa exercitation",
+    "dosis_obat": "1000 mg",
+    "harga": 5000
+  },
+  {
+    "id_resep": 101,
+    "nama_obat": "labore amet",
+    "dosis_obat": "200 mg",
+    "harga": 18000
+  },
+  {
+    "id_resep": 102,
+    "nama_obat": "duis consectetur",
+    "dosis_obat": "100 mg",
+    "harga": 18000
+  },
+  {
+    "id_resep": 103,
+    "nama_obat": "culpa ipsum",
+    "dosis_obat": "1000 mg",
+    "harga": 8000
+  },
+  {
+    "id_resep": 104,
+    "nama_obat": "aute ipsum",
+    "dosis_obat": "100 g",
+    "harga": 20000
+  },
+  {
+    "id_resep": 105,
+    "nama_obat": "minim culpa",
+    "dosis_obat": "40 g",
+    "harga": 11000
+  },
+  {
+    "id_resep": 106,
+    "nama_obat": "ut culpa",
+    "dosis_obat": "500 mg",
+    "harga": 10000
+  },
+  {
+    "id_resep": 107,
+    "nama_obat": "sit voluptate",
+    "dosis_obat": "600 mg",
+    "harga": 8000
+  },
+  {
+    "id_resep": 108,
+    "nama_obat": "labore mollit",
+    "dosis_obat": "40 g",
+    "harga": 20000
+  }
+]

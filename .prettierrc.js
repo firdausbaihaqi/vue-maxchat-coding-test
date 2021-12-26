@@ -1,11 +1,22 @@
 module.exports = {
-    semi: false,
-    tabWidth: 4,
+    semi: true,
+    tabWidth: 2,
     useTabs: false,
-    printWidth: 80,
+    printWidth: 200,
     endOfLine: 'auto',
     singleQuote: true,
     trailingComma: 'es5',
     bracketSpacing: true,
-    arrowParens: 'always',
+    // arrowParens: 'always',
+
+    // #pretty good
+    // semi: true,
+    // tabWidth: 2,
+    // useTabs: true,
+    // printWidth: 100,
+    // endOfLine: 'auto',
+    // singleQuote: true,
+    // trailingComma: 'es5',
+    // bracketSpacing: true,
+    // arrowParens: 'always',
 }

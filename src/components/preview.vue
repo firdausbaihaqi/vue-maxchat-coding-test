@@ -7,7 +7,7 @@
       </div>
       <div class="flex-grow-0">
         <router-link :to="routerLinkAndParams">
-          <button class="btn-primary">Edit</button>
+          <button class="btn-primary">Update</button>
         </router-link>
       </div>
     </div>

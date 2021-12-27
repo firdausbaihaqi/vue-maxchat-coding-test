@@ -1,6 +1,6 @@
 <template>
   <main class="bg-gray-50">
-    <Navbar @logout="logout" />
+    <Navbar @logout="logout" :username="username" />
 
     <div class="flex flex-row min-h-screen bg-gray-100 xl:flex-wrap">
       <Sidebar />
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { onMounted } from '@vue/runtime-core';
+import { onMounted, ref } from '@vue/runtime-core';
 import { useRouter } from 'vue-router';
 import { getUserLogin, removeUserLogin } from '../helpers/auth';
 
@@ -21,11 +21,15 @@ import Sidebar from './sidebar.vue';
 
 const router = useRouter();
 
+const username = ref(null);
+
 onMounted(() => {
-  const { isLoggedIn } = getUserLogin();
+  const { isLoggedIn, data } = getUserLogin();
 
   if (!isLoggedIn) {
     router.push({ name: 'Login' });
+  } else {
+    username.value = data.username;
   }
 });
 

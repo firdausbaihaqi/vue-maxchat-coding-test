@@ -19,7 +19,9 @@
         </div>
 
         <div class="py-2 ml-0 md:ml-10">
-          <h3 class="text-2xl font-semibold text-white md:text-4xl">Selamat datang, Nama User !</h3>
+          <h3 class="text-2xl font-semibold text-white md:text-4xl">
+            Selamat datang, {{ username }}!
+          </h3>
         </div>
       </div>
     </div>
@@ -78,16 +80,20 @@
 </template>
 
 <script setup>
-import { computed } from '@vue/reactivity';
+import { computed, ref } from '@vue/reactivity';
 import { onMounted } from '@vue/runtime-core';
 import { useStore } from 'vuex';
+import { getUserLogin } from '../helpers/auth';
 import Layout from '../layouts/Layout.vue';
 
 const store = useStore();
+const username = ref(null);
 const totalPasien = computed(() => store.getters.allDataPasien.length);
 
 const fetchPasien = () => store.dispatch('fetchPasien');
 onMounted(() => {
+  const { data } = getUserLogin();
+  username.value = data.username;
   fetchPasien();
 });
 </script>

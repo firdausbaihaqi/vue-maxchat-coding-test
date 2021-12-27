@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="flex justify-end gap-2 py-5">
-            <button type="submit" class="btn-primary">Update</button>
+            <button type="submit" class="btn-primary">Simpan</button>
           </div>
         </form>
       </div>

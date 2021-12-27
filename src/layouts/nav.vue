@@ -19,7 +19,7 @@
           </div>
 
           <div class="flex ml-2 capitalize">
-            <h1 class="p-0 m-0 text-sm font-semibold leading-none text-gray-800">nama user</h1>
+            <h1 class="p-0 m-0 text-sm font-semibold leading-none text-gray-800">{{ username }}</h1>
             <i class="block ml-2 text-xs leading-none fas fa-chevron-down"></i>
           </div>
         </button>
@@ -90,7 +90,11 @@
 
 <script setup>
 import { ref } from '@vue/reactivity';
+import { getUserLogin } from '../helpers/auth';
 
+const props = defineProps({
+  username: String,
+});
 const emit = defineEmits(['logout']);
 
 const isOpen = ref(false);

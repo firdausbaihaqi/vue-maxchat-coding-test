@@ -24,11 +24,12 @@ export const moduleObat = {
         setObat: (state, newDataObat) => state.obat = newDataObat,
         addObat: (state, newObat) => state.obat.push(newObat),
 
-        //     updatePasien: (state, payload) => {
-        //         const targetIndex = state.obat
-        //             .findIndex(pasien => pasien.id_resep == payload.id_resep)
-        //         state.obat.splice(targetIndex, 1, payload.updatedPasien)
-        //     },
+        updateObat: (state, payload) => {
+            const targetIndex = state.obat
+                .findIndex(obat => obat.id_resep == payload.id_resep)
+            state.obat.splice(targetIndex, 1, payload.updatedObat)
+        },
+
         deleteObat: (state, id_resep) => {
             const targetIndex = state.obat
                 .findIndex(obat => obat.id_resep == id_resep)
@@ -54,9 +55,9 @@ export const moduleObat = {
             commit('addObat', newObat)
             setDataObatLocal(state.obat)
         },
-        //     updatePasienAction: ({ commit, state }, updatedPasien) => {
-        //         commit('updatePasien', updatedPasien)
-        //         setDataPasienLocal(state.obat)
-        //     }
+        updateObatAction: ({ commit, state }, updatedObat) => {
+            commit('updateObat', updatedObat)
+            setDataObatLocal(state.obat)
+        }
     },
 }

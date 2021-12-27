@@ -62,7 +62,7 @@
 
             <div class="flex items-end justify-between mt-8">
               <div>
-                <h1 class="h5">in progress</h1>
+                <h1 class="h5">{{ totalObat }}</h1>
                 <p>Total data Obat</p>
               </div>
 
@@ -89,11 +89,15 @@ import Layout from '../layouts/Layout.vue';
 const store = useStore();
 const username = ref(null);
 const totalPasien = computed(() => store.getters.allDataPasien.length);
+const totalObat = computed(() => store.getters.allDataObat.length);
 
 const fetchPasien = () => store.dispatch('fetchPasien');
+const fetchObat = () => store.dispatch('fetchObat');
+
 onMounted(() => {
   const { data } = getUserLogin();
   username.value = data.username;
+  fetchObat();
   fetchPasien();
 });
 </script>

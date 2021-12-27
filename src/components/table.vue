@@ -16,7 +16,7 @@
                 </th>
                 <th
                   scope="col"
-                  class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase "
+                  class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase "
                 >
                   Action
                 </th>
@@ -35,7 +35,7 @@
                   {{ item[th].toString().substring(0, 30) }}
                 </td>
 
-                <td class="flex justify-end gap-3 px-6 py-4 text-lg font-medium whitespace-nowrap">
+                <td class="flex justify-center gap-3 px-6 py-4 text-lg font-medium whitespace-nowrap ">
                   <!-- tableHeader[0] berisi id -->
 
                   <router-link

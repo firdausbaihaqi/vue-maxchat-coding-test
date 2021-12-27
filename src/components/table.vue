@@ -39,14 +39,20 @@
                   <!-- tableHeader[0] berisi id -->
 
                   <router-link
-                    :to="{ name: 'PasienDetail', params: { id_pasien: item[tableHeader[0]] } }"
+                    :to="{
+                      name: detailLinkName,
+                      params: { [tableHeader[0]]: item[tableHeader[0]] },
+                    }"
                     class="text-yellow-500 cursor-pointer hover:text-yellow-600"
                   >
                     <i class="fas fa-eye"></i>
                   </router-link>
 
                   <router-link
-                    :to="{ name: 'PasienUpdate', params: { id_pasien: item[tableHeader[0]] } }"
+                    :to="{
+                      name: updateLinkName,
+                      params: { [tableHeader[0]]: item[tableHeader[0]] },
+                    }"
                     class="text-indigo-500 cursor-pointer hover:text-indigo-600"
                   >
                     <i class="fas fa-edit"></i>
@@ -73,6 +79,8 @@
 const props = defineProps({
   tableHeader: Array,
   items: Object,
+  detailLinkName: String,
+  updateLinkName: String,
 });
 
 const emit = defineEmits(['deleteItem']);

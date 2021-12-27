@@ -13,7 +13,13 @@
         <!-- content -->
         <div class="p-4 md:p-8 overflow-x-scroll max-w-[85vw] sm:max-w-[90vw] lg:max-w-none">
           <div v-if="dataPasien.length > 0">
-            <Table :tableHeader="tableHeader" :items="dataPasien" @deleteItem="deletePasien" />
+            <Table
+              :tableHeader="tableHeader"
+              :items="dataPasien"
+              :detailLinkName="detailLinkName"
+              :updateLinkName="updateLinkName"
+              @deleteItem="deletePasien"
+            />
           </div>
         </div>
       </div>
@@ -30,6 +36,8 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 const tableHeader = ['id_pasien', 'nama', 'usia', 'gender', 'alamat'];
+const detailLinkName = 'PasienDetail';
+const updateLinkName = 'PasienUpdate';
 
 const fetchPasien = () => store.dispatch('fetchPasien');
 const dataPasien = computed(() => store.getters.allDataPasien);

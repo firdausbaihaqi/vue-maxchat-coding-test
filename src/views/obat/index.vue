@@ -13,7 +13,13 @@
         <!-- content -->
         <div class="p-4 md:p-8 overflow-x-scroll max-w-[85vw] sm:max-w-[90vw] lg:max-w-none">
           <div v-if="dataObat.length > 0">
-            <Table :tableHeader="tableHeader" :items="dataObat" />
+            <Table
+              :tableHeader="tableHeader"
+              :items="dataObat"
+              :detailLinkName="detailLinkName"
+              :updateLinkName="updateLinkName"
+              @deleteItem="deleteObat"
+            />
           </div>
         </div>
       </div>
@@ -22,18 +28,23 @@
 </template>
 
 <script setup>
-import axios from 'axios';
 import Layout from '../../layouts/Layout.vue';
 import Table from '../../components/table.vue';
-import { onMounted, ref } from '@vue/runtime-core';
+import { computed, onMounted } from '@vue/runtime-core';
+import { useStore } from 'vuex';
 
-const dataObat = ref([]);
+const store = useStore();
+
 const tableHeader = ['id_resep', 'nama_obat', 'dosis_obat', 'harga'];
+const detailLinkName = 'ObatDetail';
+const updateLinkName = 'ObatUpdate';
 
-onMounted(async () => {
-  axios.get('data/obat.json').then((res) => {
-    dataObat.value = res.data;
-    // console.log(dataObat.value);
-  });
+const fetchObat = () => store.dispatch('fetchObat');
+const dataObat = computed(() => store.getters.allDataObat);
+
+const deleteObat = (id_resep) => store.dispatch('deleteObatAction', id_resep);
+
+onMounted(() => {
+  fetchObat();
 });
 </script>

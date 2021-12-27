@@ -50,7 +50,19 @@ const routes = [
         path: '/obat/create',
         name: 'ObatCreate',
         component: ObatCreate,
-    }
+    },
+    {
+        path: '/obat/update/:id_resep',
+        name: 'ObatUpdate',
+        // component: PasienUpdate,
+        props: true
+    },
+    {
+        path: '/obat/:id_resep',
+        name: 'ObatDetail',
+        // component: PasienDetail,
+        props: true
+    },
 ]
 const router = createRouter({
     history: createWebHistory(),

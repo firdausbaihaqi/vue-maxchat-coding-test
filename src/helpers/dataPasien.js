@@ -13,8 +13,4 @@ const setDataPasienLocal = (newData) => {
     localStorage.setItem("dataPasien", JSON.stringify(newData));
 }
 
-const removeDataPasien = () => {
-    setDataPasienLocal(defaultData);
-}
-
-export { getDataPasien, setDataPasienLocal, removeDataPasien }
+export { getDataPasien, setDataPasienLocal }

@@ -11,6 +11,7 @@
               <label>ID Pasien</label>
               <input
                 type="number"
+                required
                 disabled
                 v-model="data.id_pasien"
                 class="block w-full py-2 mt-2 form-input !bg-gray-100 cursor-not-allowed"
@@ -18,15 +19,30 @@
             </div>
             <div>
               <label>NIK</label>
-              <input type="number" v-model="data.nik" class="block w-full py-2 mt-2 form-input" />
+              <input
+                type="number"
+                required
+                v-model="data.nik"
+                class="block w-full py-2 mt-2 form-input"
+              />
             </div>
             <div class="col-span-1 sm:col-span-2">
               <label>Nama </label>
-              <input type="text" v-model="data.nama" class="block w-full py-2 mt-2 form-input" />
+              <input
+                type="text"
+                required
+                v-model="data.nama"
+                class="block w-full py-2 mt-2 form-input"
+              />
             </div>
             <div>
               <label>Usia</label>
-              <input type="number" v-model="data.usia" class="block w-full py-2 mt-2 form-input" />
+              <input
+                type="number"
+                required
+                v-model="data.usia"
+                class="block w-full py-2 mt-2 form-input"
+              />
             </div>
             <div>
               <label>Jenis Kelamin</label>
@@ -39,12 +55,22 @@
             <div>
               <label>No HP</label>
               <div>
-                <input type="text" v-model="data.no_hp" class="block w-full py-2 mt-2 form-input" />
+                <input
+                  type="text"
+                  required
+                  v-model="data.no_hp"
+                  class="block w-full py-2 mt-2 form-input"
+                />
               </div>
             </div>
             <div>
               <label>Alamat</label>
-              <input type="text" v-model="data.alamat" class="block w-full py-2 mt-2 form-input" />
+              <input
+                type="text"
+                required
+                v-model="data.alamat"
+                class="block w-full py-2 mt-2 form-input"
+              />
             </div>
           </div>
           <div class="flex justify-end gap-2 py-5">
@@ -62,6 +88,7 @@ import Table from '../../components/table.vue';
 import { useStore } from 'vuex';
 import { reactive } from '@vue/reactivity';
 import { useRouter } from 'vue-router';
+import { onMounted } from '@vue/runtime-core';
 
 const router = useRouter();
 const store = useStore();
@@ -84,6 +111,11 @@ const handleSubmit = () => {
   addPasien(data);
   router.push({ name: 'Pasien' });
 };
+
+const fetchPasien = () => store.dispatch('fetchPasien');
+onMounted(() => {
+  fetchPasien();
+});
 
 // console.log(lastIdPasien);
 </script>

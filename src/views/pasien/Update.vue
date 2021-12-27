@@ -3,7 +3,7 @@
     <div class="w-full">
       <div class="card">
         <div class="card-header">
-          <h6 class="h6">Tambahkan Data pasien Baru</h6>
+          <h6 class="h6">Edit Data pasien</h6>
         </div>
         <form @submit.prevent="handleSubmit" class="card-body">
           <div class="grid grid-cols-1 gap-0 sm:gap-4 md:gap-6 md:grid-cols-2">
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="flex justify-end gap-2 py-5">
-            <button type="submit" class="btn-primary">Tambah</button>
+            <button type="submit" class="btn-primary">Update</button>
           </div>
         </form>
       </div>
@@ -60,28 +60,54 @@
 import Layout from '../../layouts/Layout.vue';
 import Table from '../../components/table.vue';
 import { useStore } from 'vuex';
-import { reactive } from '@vue/reactivity';
+import { computed, ref } from '@vue/reactivity';
 import { useRouter } from 'vue-router';
+import { onMounted } from '@vue/runtime-core';
+
+const props = defineProps({
+  id_pasien: String,
+});
 
 const router = useRouter();
 const store = useStore();
 
-const newIdPasien = store.getters.lastIdPasien + 1;
-
-const data = reactive({
-  id_pasien: newIdPasien,
+const data = ref({
+  id_pasien: null,
   nik: null,
   nama: null,
   usia: null,
   gender: null,
   alamat: null,
-  no_hp: '+62 ',
+  no_hp: null,
 });
 
-const addPasien = (newPasien) => store.dispatch('addPasienAction', newPasien);
+const fetchPasien = () => store.dispatch('fetchPasien');
+onMounted(() => {
+  fetchPasien();
+
+  const pasien = computed(() => store.getters.dataPasien(props.id_pasien));
+  data.value = {
+    id_pasien: props.id_pasien,
+    nik: pasien.value.nik,
+    nama: pasien.value.nama,
+    usia: pasien.value.usia,
+    gender: pasien.value.gender,
+    alamat: pasien.value.alamat,
+    no_hp: pasien.value.no_hp,
+  };
+});
+
+const updatePasien = (updatedPasien) => {
+  const payload = {
+    id_pasien: props.id_pasien,
+    updatedPasien: updatedPasien,
+  };
+
+  store.dispatch('updatePasienAction', payload);
+};
+
 const handleSubmit = () => {
-  // console.log(data);
-  addPasien(data);
+  updatePasien(data.value);
   router.push({ name: 'Pasien' });
 };
 

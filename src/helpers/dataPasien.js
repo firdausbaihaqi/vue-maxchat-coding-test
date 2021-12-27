@@ -3,18 +3,18 @@ const getDataPasien = () => {
     const dataPasienLocal = JSON.parse(localStorage.getItem("dataPasien"));
 
     if (localStorage.getItem("dataPasien") === null) {
-        setDataPasien(defaultData);
+        setDataPasienLocal(defaultData);
     }
 
     return { dataPasienLocal };
 }
 
-const setDataPasien = (newData) => {
+const setDataPasienLocal = (newData) => {
     localStorage.setItem("dataPasien", JSON.stringify(newData));
 }
 
 const removeDataPasien = () => {
-    setDataPasien(defaultData);
+    setDataPasienLocal(defaultData);
 }
 
-export { getDataPasien, setDataPasien, removeDataPasien }
+export { getDataPasien, setDataPasienLocal, removeDataPasien }

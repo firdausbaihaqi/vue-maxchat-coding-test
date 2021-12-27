@@ -78,10 +78,16 @@
 </template>
 
 <script setup>
-import { ref } from '@vue/reactivity';
+import { computed } from '@vue/reactivity';
+import { onMounted } from '@vue/runtime-core';
 import { useStore } from 'vuex';
 import Layout from '../layouts/Layout.vue';
 
 const store = useStore();
-const totalPasien = ref(store.getters.dataPasien.length);
+const totalPasien = computed(() => store.getters.allDataPasien.length);
+
+const fetchPasien = () => store.dispatch('fetchPasien');
+onMounted(() => {
+  fetchPasien();
+});
 </script>

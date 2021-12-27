@@ -32,7 +32,7 @@ const store = useStore();
 const tableHeader = ['id_pasien', 'nama', 'usia', 'gender', 'alamat'];
 
 const fetchPasien = () => store.dispatch('fetchPasien');
-const dataPasien = computed(() => store.getters.dataPasien);
+const dataPasien = computed(() => store.getters.allDataPasien);
 
 const deletePasien = (id_pasien) => store.dispatch('deletePasienAction', id_pasien);
 

@@ -60,7 +60,7 @@
 
                   <!-- emit deleteItem dengan parameter item[id_pasien / id_obat] -->
                   <a
-                    @click.prevent="this.$emit('deleteItem', item[tableHeader[0]])"
+                    @click.prevent="$emit('deleteItem', item[tableHeader[0]])"
                     class="text-red-500 cursor-pointer hover:text-red-600"
                   >
                     <i class="fas fa-trash"></i>

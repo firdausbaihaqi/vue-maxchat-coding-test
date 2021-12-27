@@ -27,12 +27,12 @@
         <div
           x-cloak
           v-if="isOpen"
-          class="fixed right-0 z-20 w-full py-2 text-right text-gray-500 bg-white rounded shadow-md  md:text-left md:absolute md:w-40"
+          class="fixed right-0 z-20 w-full py-2 text-right text-gray-500 bg-white rounded shadow-md md:text-left md:absolute md:w-40"
         >
           <!-- item -->
           <button
             @click="modalLogout = !modalLogout"
-            class="w-full px-4 py-2 text-sm font-medium tracking-wide text-left capitalize transition-all duration-300 ease-in-out bg-white  hover:bg-gray-200 hover:text-gray-900"
+            class="w-full px-4 py-2 text-sm font-medium tracking-wide text-left capitalize transition-all duration-300 ease-in-out bg-white hover:bg-gray-200 hover:text-gray-900"
           >
             <i class="mr-1 text-xs fas fa-user-times"></i>
             Logout
@@ -49,7 +49,7 @@
             <!-- overlay -->
 
             <div
-              class="fixed z-50 flex flex-col w-full px-4 mx-auto mt-10 bg-white border rounded-lg  py-7 lg:w-2/6 md:w-1/2 md:ml-auto md:mt-0"
+              class="fixed z-50 flex flex-col w-full px-4 mx-auto mt-10 bg-white border rounded-lg py-7 lg:w-2/6 md:w-1/2 md:ml-auto md:mt-0"
             >
               <div class="px-4 text-left">
                 <!--Title-->
@@ -68,7 +68,7 @@
                 <!--Action-->
                 <div class="flex justify-end pt-8">
                   <div class="flex gap-2">
-                    <button @click="this.$emit('logout')" type="submit" class="btn-danger">
+                    <button @click="$emit('logout')" type="submit" class="btn-danger">
                       Logout
                     </button>
 

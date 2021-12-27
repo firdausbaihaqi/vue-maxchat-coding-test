@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Pasien from '../views/pasien/index.vue'
 import PasienCreate from '../views/pasien/Create.vue'
 import PasienUpdate from '../views/pasien/Update.vue'
+import PasienDetail from '../views/pasien/Detail.vue'
 import Obat from '../views/obat/index.vue'
 import ObatCreate from '../views/obat/Create.vue'
 
@@ -32,6 +33,12 @@ const routes = [
         path: '/pasien/update/:id_pasien',
         name: 'PasienUpdate',
         component: PasienUpdate,
+        props: true
+    },
+    {
+        path: '/pasien/:id_pasien',
+        name: 'PasienDetail',
+        component: PasienDetail,
         props: true
     },
     {

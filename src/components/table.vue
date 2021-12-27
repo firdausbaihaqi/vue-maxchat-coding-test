@@ -38,9 +38,12 @@
                 <td class="flex justify-end gap-3 px-6 py-4 text-lg font-medium whitespace-nowrap">
                   <!-- tableHeader[0] berisi id -->
 
-                  <a class="text-yellow-500 cursor-pointer hover:text-yellow-600">
+                  <router-link
+                    :to="{ name: 'PasienDetail', params: { id_pasien: item[tableHeader[0]] } }"
+                    class="text-yellow-500 cursor-pointer hover:text-yellow-600"
+                  >
                     <i class="fas fa-eye"></i>
-                  </a>
+                  </router-link>
 
                   <router-link
                     :to="{ name: 'PasienUpdate', params: { id_pasien: item[tableHeader[0]] } }"

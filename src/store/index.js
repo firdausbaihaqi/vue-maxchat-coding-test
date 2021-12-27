@@ -16,9 +16,6 @@ export const store = createStore({
                 return state.pasien.at(-1).id_pasien
             } else if (dataPasienLocal.length > 0) {
                 return dataPasienLocal.at(-1).id_pasien
-            } else {
-                alert("data pasien kosong, isi data akan di reset ke default")
-                window.location.reload()
             }
         },
         dataPasien: state => (id_pasien) => {

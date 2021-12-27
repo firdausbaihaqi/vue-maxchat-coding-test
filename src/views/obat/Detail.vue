@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <Preview v-if="data" title="Data Pasien" :routerLinkAndParams="routerLinkAndParams" :items="data" />
+    <Preview v-if="data" title="Data Obat" :routerLinkAndParams="routerLinkAndParams" :items="data" />
   </Layout>
 </template>
 
@@ -13,17 +13,17 @@ import { onMounted } from '@vue/runtime-core';
 
 const store = useStore();
 const props = defineProps({
-  id_pasien: String,
+  id_resep: String,
 });
 
 const data = ref(null);
-const routerLinkAndParams = { name: 'PasienUpdate', params: { id_pasien: props.id_pasien } };
+const routerLinkAndParams = { name: 'ObatUpdate', params: { id_resep: props.id_resep } };
 
-const fetchPasien = () => store.dispatch('fetchPasien');
+const fetchObat = () => store.dispatch('fetchObat');
 
 onMounted(() => {
-  fetchPasien();
-  const pasien = computed(() => store.getters.dataPasien(props.id_pasien));
-  data.value = pasien.value;
+  fetchObat();
+  const obat = computed(() => store.getters.dataObat(props.id_resep));
+  data.value = obat.value;
 });
 </script>

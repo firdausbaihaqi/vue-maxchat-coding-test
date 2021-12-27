@@ -7,7 +7,8 @@ import PasienUpdate from '../views/pasien/Update.vue'
 import PasienDetail from '../views/pasien/Detail.vue'
 import Obat from '../views/obat/index.vue'
 import ObatCreate from '../views/obat/Create.vue'
-import obatUpdate from '../views/obat/Update.vue'
+import ObatUpdate from '../views/obat/Update.vue'
+import ObatDetail from '../views/obat/Detail.vue'
 
 const routes = [
     {
@@ -55,13 +56,13 @@ const routes = [
     {
         path: '/obat/update/:id_resep',
         name: 'ObatUpdate',
-        component: obatUpdate,
+        component: ObatUpdate,
         props: true
     },
     {
         path: '/obat/:id_resep',
         name: 'ObatDetail',
-        // component: PasienDetail,
+        component: ObatDetail,
         props: true
     },
 ]

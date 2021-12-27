@@ -2,20 +2,7 @@
   <div>
     <button
       @click="isOpen = !isOpen"
-      class="
-        fixed
-        z-30
-        inline-block
-        duration-300
-        bg-gray-600
-        rounded-full
-        lg:hidden
-        left-5
-        w-14
-        h-14
-        hover:bg-blue-400
-        bottom-5
-      "
+      class="fixed z-30 inline-block duration-300 bg-gray-600 rounded-full lg:hidden left-5 w-14 h-14 hover:bg-blue-400 bottom-5"
     >
       <i class="text-white fas fa-chevron-right"></i>
     </button>
@@ -23,23 +10,7 @@
     <div
       :class="{ hidden: !isOpen }"
       id="sideBar"
-      class="
-        fixed
-        top-0
-        left-0
-        z-50
-        flex-col flex-wrap flex-none
-        w-64
-        min-h-full
-        p-6
-        mt-0
-        bg-white
-        border-r border-gray-200
-        md:z-20
-        lg:relative
-        md:pt-4 md:top-12
-        lg:flex
-      "
+      class="fixed top-0 left-0 z-50 flex-col flex-wrap flex-none w-64 min-h-full p-6 mt-0 bg-white border-r border-gray-200 md:z-20 lg:relative md:pt-4 md:top-12 lg:flex"
     >
       <!-- sidebar content -->
       <div class="flex flex-col pt-7">
@@ -78,6 +49,12 @@
         <router-link to="/obat/create" class="sidebar-item" active-class="sidebar-item-active">
           <i class="ml-4 mr-2 text-sm fas fa-folder-plus"></i>
           Tambah data obat
+        </router-link>
+
+        <p class="mt-4 mb-3 ml-2 text-sm tracking-wider text-gray-600 uppercase">Order</p>
+        <router-link to="/order" class="sidebar-item" active-class="sidebar-item-active">
+          <i class="ml-4 mr-2 text-sm fas fa-receipt"></i>
+          Buat Order baru
         </router-link>
       </div>
       <!-- end sidebar content -->

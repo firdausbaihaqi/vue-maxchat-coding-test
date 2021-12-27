@@ -9,6 +9,8 @@ import Obat from '../views/obat/index.vue'
 import ObatCreate from '../views/obat/Create.vue'
 import ObatUpdate from '../views/obat/Update.vue'
 import ObatDetail from '../views/obat/Detail.vue'
+import Order from '../views/order/Order.vue'
+import PreviewOrder from '../views/order/PreviewOrder.vue'
 
 const routes = [
     {
@@ -64,6 +66,16 @@ const routes = [
         name: 'ObatDetail',
         component: ObatDetail,
         props: true
+    },
+    {
+        path: '/order',
+        name: 'Order',
+        component: Order,
+    },
+    {
+        path: '/order/preview',
+        name: 'OrderPreview',
+        component: PreviewOrder,
     },
 ]
 const router = createRouter({

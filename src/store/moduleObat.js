@@ -4,6 +4,7 @@ import { getDataObat, setDataObatLocal } from '../helpers/dataObat'
 export const moduleObat = {
     state: {
         obat: [],
+        order: null
     },
     getters: {
         allDataObat: state => state.obat,
@@ -19,6 +20,7 @@ export const moduleObat = {
         dataObat: state => (id_resep) => {
             return state.obat.find(obat => obat.id_resep == id_resep)
         },
+        dataOrder: state => state.order
     },
     mutations: {
         setObat: (state, newDataObat) => state.obat = newDataObat,
@@ -34,7 +36,9 @@ export const moduleObat = {
             const targetIndex = state.obat
                 .findIndex(obat => obat.id_resep == id_resep)
             state.obat.splice(targetIndex, 1)
-        }
+        },
+
+        setOrder: (state, newDataOrder) => state.order = newDataOrder,
     },
     actions: {
         fetchObat: async ({ commit }) => {
@@ -58,6 +62,9 @@ export const moduleObat = {
         updateObatAction: ({ commit, state }, updatedObat) => {
             commit('updateObat', updatedObat)
             setDataObatLocal(state.obat)
+        },
+        setOrderAction: ({ commit }, newOrder) => {
+            commit('setOrder', newOrder)
         }
     },
 }
